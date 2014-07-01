@@ -26,8 +26,8 @@ rb-site install \
     --db-host=localhost \
     --db-user=$RB_USER \
     --db-pass=$RB_USER \
-    --cache-type=file \
-    --cache-info=/home/$RB_USER/devel/htdocs/reviewboard/cache \
+    --cache-type=memcached \
+    --cache-info=memcached://localhost:11211 \
     --web-server-type=apache \
     --web-server-port=80 \
     --python-loader=wsgi \
