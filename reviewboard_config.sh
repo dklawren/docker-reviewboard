@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Install reviewboard
+yum remove -y ReviewBoard
+easy_install reviewboard
+easy_install RBTools
+
 # Configure reviewboard database
 /usr/bin/mysqld_safe &
 sleep 5
@@ -10,21 +15,26 @@ mysql -u $RB_USER -p$RB_USER -e "CREATE DATABASE reviewboard CHARACTER SET = 'ut
 mkdir /etc/reviewboard
 chown $RB_USER:$RB_USER /etc/reviewboard
 rb-site install \
+    --copy-media \
     --noinput \
     --domain-name=localhost \
     --site-root=/ \
-    --media-url=media \
+    --static-url=static/ \
+    --media-url=media/ \
     --db-type=mysql \
     --db-name=$RB_USER \
+    --db-host=localhost \
     --db-user=$RB_USER \
     --db-pass=$RB_USER \
     --cache-type=file \
     --cache-info=/home/$RB_USER/devel/htdocs/reviewboard/cache \
     --web-server-type=apache \
+    --web-server-port=80 \
     --python-loader=wsgi \
     --admin-user=admin \
     --admin-password=password \
     --admin-email=admin@example.com \
+    --sitelist=/etc/reviewboard/sites \
     /home/$RB_USER/devel/htdocs/reviewboard
 
 # Shutdown database

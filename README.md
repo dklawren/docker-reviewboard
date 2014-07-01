@@ -1,4 +1,4 @@
 docker-reviewboard
 ==================
 
-  Configure a running Rviewboard system using Docker
+  Configure a running Reviewboard system using Docker

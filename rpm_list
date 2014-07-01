@@ -19,3 +19,5 @@ passwd
 shadow-utils
 memcached
 python-memcached
+python-setuptools
+python-devel
