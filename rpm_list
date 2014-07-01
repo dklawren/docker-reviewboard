@@ -21,3 +21,5 @@ memcached
 python-memcached
 python-setuptools
 python-devel
+python-pip
+nodejs-less
