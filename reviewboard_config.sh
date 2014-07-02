@@ -17,7 +17,7 @@ chown $RB_USER:$RB_USER /etc/reviewboard
 rb-site install \
     --copy-media \
     --noinput \
-    --domain-name=localhost \
+    --domain-name=localhost:8080 \
     --site-root=/ \
     --static-url=static/ \
     --media-url=media/ \
