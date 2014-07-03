@@ -4,6 +4,8 @@
 yum remove -y ReviewBoard
 easy_install reviewboard
 easy_install RBTools
+easy_install rbbz
+easy_install rbmozui
 
 # Configure reviewboard database
 /usr/bin/mysqld_safe &
@@ -27,7 +29,7 @@ rb-site install \
     --db-user=$RB_USER \
     --db-pass=$RB_USER \
     --cache-type=memcached \
-    --cache-info=memcached://localhost:11211 \
+    --cache-info=localhost:11211 \
     --web-server-type=apache \
     --web-server-port=80 \
     --python-loader=wsgi \
